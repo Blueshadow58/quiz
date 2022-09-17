@@ -2,7 +2,7 @@ export const getQuestions = async () => {
   const options = { method: "GET" };
   try {
     const res = await fetch(
-      "https://opentdb.com/api.php?amount=2&category=28&difficulty=easy&type=multiple",
+      "https://opentdb.com/api.php?amount=3&category=28&difficulty=easy&type=multiple",
       options
     );
     const data = await res.json();

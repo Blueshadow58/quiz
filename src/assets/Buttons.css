@@ -1,4 +1,16 @@
 .customButton:hover {
   background-color: #f9a826 !important;
   border-color: #f9a826 !important;
+  color: white !important;
+}
+
+.nextButton {
+  background-color: #f8a827 !important;
+  border-color: #f8a827 !important;
+  font-size: 18px !important;
+  font-weight: bold !important;
+  padding-inline: 5vh !important;
+}
+.nextButton:disabled {
+  display: none;
 }

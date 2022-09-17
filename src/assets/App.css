@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vh;
+
   margin-top: 5vh;
 }
 
@@ -41,6 +41,14 @@
   /* position: fixed; */
 }
 
+.customWinnersImg {
+  height: 25vh;
+  top: 18vh;
+  width: 55vh;
+  display: block;
+  margin: auto;
+}
+
 .customQuizTitle {
   color: white;
   font-weight: 700 !important;
@@ -52,7 +60,7 @@
 }
 
 .titleImgCard {
-  bottom: -4vh;
+  bottom: -2vh;
   padding-inline: 2vh;
   z-index: 1;
   background-color: transparent !important;
@@ -88,5 +96,64 @@
     font-size: 20px !important;
     line-height: 36px !important;
     width: auto;
+  }
+}
+
+@media (max-width: 1200px) {
+  .customWinnersImg {
+    height: 25vh;
+    top: 18vh;
+    width: 50vh !important;
+  }
+  .customQuizTitle {
+    height: 12vh;
+    top: 4vh;
+    left: 7vh;
+    color: white;
+    font-weight: 700 !important;
+    font-size: 20px !important;
+    line-height: 36px !important;
+  }
+  .titleImgCard {
+    bottom: -1vh;
+    padding-inline: 1vh;
+  }
+  .customCard {
+    padding-block: 35px;
+    padding-inline: 15px;
+    border-radius: 24px !important;
+  }
+}
+
+@media (max-width: 385px) {
+  .customWinnersImg {
+    height: 25vh;
+    top: 18vh;
+    width: auto !important;
+    display: block;
+    margin: auto;
+  }
+  .titleImgCard {
+    bottom: -6vh;
+    padding-inline: 4vh;
+  }
+}
+
+@media (max-width: 393px) {
+  .customWinnersImg {
+    height: 25vh;
+    top: 18vh;
+    width: auto !important;
+    display: block;
+    margin: auto;
+  }
+  .titleImgCard {
+    bottom: -5vh;
+    padding-inline: 3vh;
+  }
+  .customImg {
+    height: 12vh;
+    top: 4vh;
+    left: 29vh;
   }
 }
