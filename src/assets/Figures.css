@@ -1,0 +1,38 @@
+#rectangle1 {
+  width: 100vh;
+  height: 60vh;
+  left: -10vh;
+  bottom: -20vh;
+  background: #5c61c3;
+  rotate: calc(20deg);
+  position: fixed;
+  border-radius: 30px;
+  z-index: -1 !important;
+}
+
+#rectangle2 {
+  width: 180vh;
+  height: 140vh;
+  left: 125vh;
+  bottom: -5vh;
+  background: #5c61c3;
+  rotate: calc(20deg);
+  position: fixed;
+  border-radius: 30px;
+  z-index: -1 !important;
+}
+
+@media (max-width: 400px) {
+  #rectangle1 {
+    width: 100vh;
+    height: 60vh;
+    left: -13vh;
+    bottom: -30vh;
+  }
+  #rectangle2 {
+    width: 100vh;
+    height: 40vh;
+    left: 15vh;
+    bottom: 60vh;
+  }
+}

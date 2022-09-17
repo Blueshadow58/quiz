@@ -1,0 +1,92 @@
+.vsCenterring {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vh;
+  margin-top: 5vh;
+}
+
+.cardTitle {
+  color: #2f527b;
+  font-weight: 700 !important;
+  font-size: 22px !important;
+  line-height: 36px !important;
+}
+
+.customCard {
+  padding-block: 35px;
+  padding-inline: 15px;
+  border-radius: 24px !important;
+}
+
+.alternativeText {
+  font-size: 18px;
+}
+
+.customCardHeader {
+  background-color: white !important;
+  border-bottom: none !important;
+  padding-block: 0px !important;
+}
+.customTextCardHeader {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.customImg {
+  height: 12vh;
+  top: 18vh;
+  left: 105vh;
+  width: auto;
+  /* position: fixed; */
+}
+
+.customQuizTitle {
+  color: white;
+  font-weight: 700 !important;
+  font-size: 22px !important;
+  line-height: 36px !important;
+  width: auto;
+  /* position: fixed; */
+  text-transform: uppercase;
+}
+
+.titleImgCard {
+  bottom: -4vh;
+  padding-inline: 2vh;
+  z-index: 1;
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+@media (max-width: 400px) {
+  .vsCenterring {
+    margin-top: -2vh;
+  }
+  .titleImgCard {
+    bottom: -6vh;
+    padding-inline: 3vh;
+  }
+  .customCard {
+    margin: 15px;
+    padding-block: 16px;
+  }
+  .customImg {
+    height: 15vh;
+    top: 4vh;
+    left: 29vh;
+  }
+  .cardTitle {
+    font-size: 19px !important;
+  }
+  .customQuizTitle {
+    height: 12vh;
+    top: 4vh;
+    left: 7vh;
+    color: white;
+    font-weight: 700 !important;
+    font-size: 20px !important;
+    line-height: 36px !important;
+    width: auto;
+  }
+}
