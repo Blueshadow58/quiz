@@ -6,6 +6,25 @@
   margin-top: 5vh;
 }
 
+.tryAgainBtn {
+  font-size: 18px !important;
+  font-weight: 600;
+  color: #1d355d !important;
+  border-color: #1d355d !important;
+  border-width: 3px;
+}
+.tryAgainBtn:hover {
+  color: white !important;
+  background-color: #f8a827 !important;
+  border-color: #f8a827 !important;
+}
+
+.textPoints {
+  font-size: 30px !important;
+  font-weight: 900;
+  color: #81d5a4;
+}
+
 .cardTitle {
   color: #2f527b;
   font-weight: 700 !important;

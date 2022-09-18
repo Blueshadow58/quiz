@@ -24,6 +24,8 @@ const App = () => {
   const [disabledButton, setDisabledButton] = useState(false);
   const [disableNextBtn, setDisableNextBtn] = useState(true);
   let [pointCounter, setPointCounter] = useState(0);
+  const [finish, setFinish] = useState(false);
+  const [reset, setReset] = useState(false);
 
   useEffect(() => {
     getQuestions()
@@ -37,58 +39,63 @@ const App = () => {
         setAlternatives(allQuestions);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [reset]);
 
   const onClickButton = (answer, index) => {
+    const selectedButton = document.getElementById(`button${index}`);
+
     if (answer === questions[qNumber].correct_answer) {
       //Correct
-      setDisabledButton(true);
-      const selectedButton = document.getElementById(`button${index}`);
       CorrectButton(selectedButton);
       setPointCounter(++pointCounter);
     } else {
       //Incorrect
-      setDisabledButton(true);
-      const selectedButton = document.getElementById(`button${index}`);
       alternatives[qNumber].forEach((data, index) => {
         if (data === questions[qNumber].correct_answer) {
-          console.log(data);
           const correctButton = document.getElementById(`button${index}`);
-          console.log(correctButton);
-          return CorrectButton(correctButton);
+          CorrectButton(correctButton);
         }
       });
       IncorrectButton(selectedButton);
     }
+    setDisabledButton(true);
     setDisableNextBtn(false);
   };
 
   const onClickNextButton = () => {
     if (qNumber < questions.length - 1) {
-      setDisabledButton(false);
-      setQNumber(++qNumber);
-      alternatives.forEach((data, index) => {
+      alternatives[qNumber].forEach((data, index) => {
         const btn = document.getElementById(`button${index}`);
         DefaultBtn(btn);
       });
-
+      setQNumber(++qNumber);
+      setDisabledButton(false);
       setDisableNextBtn(true);
     } else {
-      console.log("no existen mas preguntas");
+      setFinish(true);
     }
   };
-  console.log(qNumber);
+
+  const onClickResetBtn = () => {
+    setPointCounter(0);
+    setQNumber(0);
+    setDisabledButton(false);
+    setDisableNextBtn(true);
+    setFinish(false);
+    setReset(!reset);
+  };
+
   return (
     <Container className="vsCenterring ">
       <Row className="justify-content-md-center align-items-center vsCenterring">
-        <Col xs md lg={10}>
+        <Col md={8} lg={8}>
           {alternatives ? (
             <>
               <Card className="titleImgCard ">
                 <Stack direction="horizontal">
                   <div>
                     <span className="customQuizTitle">
-                      {questions[qNumber].category} QUIZ
+                      {questions[questions.length - 1].category} QUIZ
                     </span>
                   </div>
                   <div className="ms-auto">
@@ -103,18 +110,32 @@ const App = () => {
                   </span>
                 </Card.Header>
 
-                {qNumber === questions.length - 1 ? (
+                {finish ? (
                   <>
                     <Card.Body>
-                      <div className="d-flex justify-content-center">
+                      <div className="pb-2 d-flex justify-content-center">
                         <WinnersIcon className="customWinnersImg" />
                       </div>
 
-                      <Card.Title className="pb-2 cardTitle text-center">
+                      <Card.Title className="pb-1 cardTitle text-center">
                         <span className="h2">Results</span>
                       </Card.Title>
-                      <div className="d-flex justify-content-center">
-                        <span>You got 4 correct answers</span>
+                      <div className=" d-flex justify-content-center ">
+                        <p>
+                          You got
+                          <span className="textPoints"> {pointCounter} </span>
+                          correct answers
+                        </p>
+                      </div>
+                      <div className="d-flex justify-content-center ">
+                        <Button
+                          className="mt-3 tryAgainBtn"
+                          variant="outline-primary"
+                          size="lg"
+                          onClick={() => onClickResetBtn()}
+                        >
+                          Try Again
+                        </Button>
                       </div>
                     </Card.Body>
                   </>
@@ -152,6 +173,7 @@ const App = () => {
                         );
                       })}
                     </div>
+
                     <Button
                       className="mt-3 float-end nextButton"
                       variant="primary"
