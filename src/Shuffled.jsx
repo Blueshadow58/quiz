@@ -1,5 +1,3 @@
-import React from "react";
-
 export const Shuffled = (unshuffled) => {
   let shuffled = unshuffled
     .map((value) => ({ value, sort: Math.random() }))
